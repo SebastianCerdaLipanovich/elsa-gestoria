@@ -12,25 +12,17 @@ import MenuItem from '@mui/material/MenuItem';
 import Logo from './Logo';
 import CartWidget from './CartWidget';
 
-const pages = ['Servicios', 'Precios',<CartWidget cantidad={10}/>];
+const pages = ['Servicios', 'Precios'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   return (
@@ -101,6 +93,7 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
+          <CartWidget valor />
         </Toolbar>
       </Container>
     </AppBar >

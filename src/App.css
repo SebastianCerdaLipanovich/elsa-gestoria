@@ -3,8 +3,8 @@
 }
 
 .Logo-main {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .App-header {
@@ -22,3 +22,13 @@
   color: #61dafb;
 }
 
+.itemListContainer {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.itemCount {
+  justify-content: center;
+  justify-content: space-around;
+}
