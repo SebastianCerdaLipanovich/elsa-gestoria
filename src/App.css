@@ -32,3 +32,42 @@
   justify-content: center;
   justify-content: space-around;
 }
+
+.itemListTitle {
+  margin: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  text-align: center;
+}
+
+.ItemDetailContainer {
+  margin: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  text-align: center;
+}
+
+.itemDetail {
+
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+}
+
+.itemDetail img {
+  width: 400px;
+  border-style: double;
+  border-color: #282c34;
+  border-radius: 5%;
+
+}
