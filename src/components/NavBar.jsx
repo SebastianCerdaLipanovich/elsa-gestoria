@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from './Logo';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 const pages = ['Servicios', 'Precios'];
 
@@ -68,7 +69,8 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={handleCloseNavMenu} component={Link}
+                  to={`/${page}/`}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -87,6 +89,8 @@ const ResponsiveAppBar = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
+                component={Link}
+                to={`/${page}/`}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}

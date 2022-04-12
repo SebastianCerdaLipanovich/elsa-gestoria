@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import {useParams} from 'react-router-dom';
 import { traerProducto } from '../utils/products'
 import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer() {
 
-    const [producto, setProducto] = useState({});
+    const {id} = useParams()
+    const[producto, setProducto] = useState({})
 
-    useEffect(() => {
-        traerProducto()
+    useEffect(() => {        
+            traerProducto(id)
             .then((res) => setProducto(res))
             .catch((error) => console.log(error));
-    }, []);
-
+    }, [id])
 
     return (
         <>

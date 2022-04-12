@@ -1,20 +1,22 @@
 // Muestra 1 item
-import * as React from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from './ItemCount';
 
-export default function Item({onAdd, item}) {
+
+
+export default function Item({ onAdd, item }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         height="200"
         image={item.pictureURL}
-        alt={item.nombre}
-      />
+        alt={item.nombre}/>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {item.nombre}
@@ -23,7 +25,8 @@ export default function Item({onAdd, item}) {
           USD {item.precio}
         </Typography>
       </CardContent>
-        <ItemCount onAdd={onAdd} initial={0} stock={10}/>
+      <ItemCount onAdd={onAdd} initial={0} stock={10} />
+      <Link to={`/Servicios/${item.id}`}>Ver detalle</Link>
     </Card>
   );
 }

@@ -1,17 +1,26 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from "./components/ItemDetailContainer"
+import PageNotFound from './components/PageNotFound';
+import MyHome from './components/MyHome';
 
 function App() {
 
   return (
-    <>
+    <BrowserRouter>
       <NavBar />
-      <ItemListContainer/>
+      <Routes>
+        <Route path="*" element={<PageNotFound/>} />
+        <Route path="/" element={<MyHome/>} />
+        <Route exact path="/Servicios/" element={<ItemListContainer />} />
+        <Route exact path="/Servicios/:id" element={<ItemDetailContainer />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
