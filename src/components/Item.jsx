@@ -5,7 +5,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import ItemCount from './ItemCount';
 
 
 
@@ -24,9 +23,9 @@ export default function Item({ onAdd, item }) {
         <Typography variant="body2" color="text.secondary">
           USD {item.precio}
         </Typography>
+        <Link to={`/Servicios/${item.id}`}>Ver detalle</Link>
       </CardContent>
-      <ItemCount onAdd={onAdd} initial={0} stock={10} />
-      <Link to={`/Servicios/${item.id}`}>Ver detalle</Link>
+      
     </Card>
   );
 }

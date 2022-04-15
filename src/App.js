@@ -7,6 +7,7 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import PageNotFound from './components/PageNotFound';
 import MyHome from './components/MyHome';
+import Cart from './components/Cart'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="*" element={<PageNotFound/>} />
         <Route path="/" element={<MyHome/>} />
+        <Route path="/Cart" element={<Cart/>} />
         <Route exact path="/Servicios/" element={<ItemListContainer />} />
         <Route exact path="/Servicios/:id" element={<ItemDetailContainer />} />
       </Routes>
