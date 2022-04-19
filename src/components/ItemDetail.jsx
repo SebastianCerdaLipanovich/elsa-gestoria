@@ -15,7 +15,7 @@ export default function ItemDetail({ producto }) {
                     <h4>{producto.nombre}</h4>
                     <h4>USD {producto.precio}</h4>
                     <p>{producto.descripcion}</p>
-                    <ItemCount producto={producto} initial={1} addToCart={addToCart}  />:
+                    <ItemCount producto={producto} initial={1} addToCart={addToCart}  />
                 </div>
             </div>
         </>

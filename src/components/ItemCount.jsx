@@ -10,8 +10,8 @@ export default function ItemCount({ producto, initial, addToCart }) {
 
     return (
         <>
-            {mostrar ?
-                <div>
+            {mostrar ? (
+                <>
                     <CardActions className='itemCount'>
                         <button disabled={0 === cantidad} onClick={() => setCantidad(cantidad - 1)}>-</button>
                         {cantidad}
@@ -20,11 +20,13 @@ export default function ItemCount({ producto, initial, addToCart }) {
                     <CardActions className='itemCount'>
                         <button onClick={() => { addToCart(producto, cantidad); setMostrar(false) }}> Agregar al carro</button>
                     </CardActions>
-                </div> 
-                :
-                <div>
-                    <Link to="/cart"> Ir al carrito</Link>
-                </div>
+                </>
+
+            ) : (
+
+                <Link to="/cart"> Ir al carrito</Link>
+
+            )
             }
         </>
     )
