@@ -1,14 +1,23 @@
-import React, {useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../components/CartContext'
 
 export default function CartWidget() {
 
-    const [cantidad, setCantidad] = useState(0);
-
+    let { cart } = useContext(CartContext);
+    const [sum, setSum] = useState(Number(0))
+    
+    useEffect(() => {
+        setSum(Number(0))
+        cart.forEach(element => {
+            setSum( s => s+element.cantidad)
+        });
+    }, [cart])
 
 
     return (
         <>
-            🛒({cantidad})
+            <Link to="/cart"> 🛒({sum})</Link>
         </>
     )
 }

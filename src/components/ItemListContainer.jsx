@@ -10,10 +10,6 @@ import ItemList from './ItemList';
 
 export default function ItemListContainer() {
 
-    function onAdd() {
-
-    }
-
     const [itemList, setItemList] = useState([]);
     const [loading, setLoading] = useState(true)
 
@@ -42,7 +38,7 @@ export default function ItemListContainer() {
                 <>
 
                     <div className='itemListContainer'>
-                        <ItemList onAdd={onAdd} itemList={itemList} />
+                        <ItemList itemList={itemList} />
                     </div>
                     <br />
                 </>

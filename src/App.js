@@ -8,21 +8,24 @@ import ItemDetailContainer from "./components/ItemDetailContainer"
 import PageNotFound from './components/PageNotFound';
 import MyHome from './components/MyHome';
 import Cart from './components/Cart'
+import CartContextProvider from './components/CartContext';
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="*" element={<PageNotFound/>} />
-        <Route path="/" element={<MyHome/>} />
-        <Route path="/Cart" element={<Cart/>} />
-        <Route exact path="/Servicios/" element={<ItemListContainer />} />
-        <Route exact path="/Servicios/:id" element={<ItemDetailContainer />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="/" element={<MyHome />} />
+          <Route path="/Cart" element={<Cart />} />
+          <Route exact path="/Servicios/" element={<ItemListContainer />} />
+          <Route exact path="/Servicios/:id" element={<ItemDetailContainer />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </CartContextProvider>
   );
 }
 

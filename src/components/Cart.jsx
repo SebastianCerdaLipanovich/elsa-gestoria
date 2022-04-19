@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
+import CartListContainer from './CartListContainer';
 
 export default function Cart() {
-
-    const [cantidad, setCantidad] = useState(0);
-
-
-
     return (
         <>
-            🛒({cantidad})
+            <h1>Mi Carrito</h1>
+            
+            <CartListContainer />
         </>
     )
 }
