@@ -10,11 +10,11 @@ export default function ItemDetail({ producto }) {
     return (
         <>
             <div className="itemDetail">
-                <img src={producto.pictureURL} alt={producto.nombre} />
+                <img src={producto.img} alt={producto.name} />
                 <div>
-                    <h4>{producto.nombre}</h4>
-                    <h4>USD {producto.precio}</h4>
-                    <p>{producto.descripcion}</p>
+                    <h4>{producto.name}</h4>
+                    <h4>USD {producto.price}</h4>
+                    <p>{producto.description}</p>
                     <ItemCount producto={producto} initial={1} addToCart={addToCart}  />
                 </div>
             </div>

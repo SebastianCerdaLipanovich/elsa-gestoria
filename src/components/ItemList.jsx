@@ -3,11 +3,11 @@
 import React from "react";
 import Item from "./Item";
 
-export default function ItemList({ onAdd, itemList }) {
+export default function ItemList({ itemList }) {
 
     return (
         <>
-            {itemList.map(item => <Item key={item.id} onAdd={onAdd} item={item} />)}
+            {itemList.map(item => <Item key={item.id} item={item} />)}
         </>
     )
 

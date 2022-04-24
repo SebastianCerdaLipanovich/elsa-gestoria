@@ -3,6 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { initializeApp } from "firebase/app";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCFn0vDb6Jj_tkldfJs5BNtNBQXsFx9j70",
+  authDomain: "elsa-gestoria.firebaseapp.com",
+  projectId: "elsa-gestoria",
+  storageBucket: "elsa-gestoria.appspot.com",
+  messagingSenderId: "549843766739",
+  appId: "1:549843766739:web:625aed37d110f381077326",
+  measurementId: "G-9BKVJ7K7HE"
+};
+
+initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>

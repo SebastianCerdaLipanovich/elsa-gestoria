@@ -14,14 +14,14 @@ export default function Item({ item }) {
       <CardMedia
         component="img"
         height="200"
-        image={item.pictureURL}
-        alt={item.nombre}/>
+        image={item.img}
+        alt={item.name}/>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {item.nombre}
+          {item.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          USD {item.precio}
+          USD {item.price}
         </Typography>
         <Link to={`/Servicios/${item.id}`}>Ver detalle</Link>
       </CardContent>

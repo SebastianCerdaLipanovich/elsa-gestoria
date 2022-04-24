@@ -1,21 +1,24 @@
 //Este tiene la logica
 
 import React, { useEffect, useState } from 'react';
-import { traerProductos } from '../utils/products'
 import CircularIndeterminate from './CircularIndeterminate';
 import ItemList from './ItemList';
-
-
-
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 export default function ItemListContainer() {
+
 
     const [itemList, setItemList] = useState([]);
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        traerProductos()
-            .then((res) => setItemList(res))
+        const db = getFirestore();
+
+        const serviciosRef = collection(db, "servicios");
+
+        getDocs(serviciosRef).then((res) => {
+            setItemList(res.docs.map((item) => ({ id: item.id, ...item.data() })));
+        })
             .catch((error) => console.log(error))
             .finally(() => {
                 setLoading(false);
@@ -45,4 +48,4 @@ export default function ItemListContainer() {
             )}
         </>
     )
-}
+};

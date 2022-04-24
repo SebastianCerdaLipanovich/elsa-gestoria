@@ -7,7 +7,7 @@ export default function CartContextProvider({ children }) {
 
     function addToCart(item, cantidad) {
         if (isInCart(item.id)){
-            let index = cart.findIndex(element => element.item.id === Number(item.id))
+            let index = cart.findIndex(element => element.item.id === item.id)
             cart[index].cantidad = cart[index].cantidad + cantidad;
             setCart([...cart]);
         } else {
@@ -16,7 +16,7 @@ export default function CartContextProvider({ children }) {
     };
 
     function isInCart(id){
-        let result = cart.find(element => element.item.id === Number(id));
+        let result = cart.find(element => element.item.id === id);
         if (result === undefined){
             return false;
         }else{
@@ -25,8 +25,9 @@ export default function CartContextProvider({ children }) {
 
     }
     function removeFromCart(id) {
-        setCart([cart.filter(item => item.id !== id)])
+        setCart([cart.filter(element => element.id !== id)])
     }
+
     function clear() {
         setCart([]);
     }
