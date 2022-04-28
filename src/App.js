@@ -9,6 +9,7 @@ import PageNotFound from './components/PageNotFound';
 import MyHome from './components/MyHome';
 import Cart from './components/Cart'
 import CartContextProvider from './components/CartContext';
+import CheckOutForm from './components/CheckOutForm';
 
 function App() {
 
@@ -22,8 +23,8 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
           <Route exact path="/Servicios/" element={<ItemListContainer />} />
           <Route exact path="/Servicios/:id" element={<ItemDetailContainer />} />
+          <Route exact path="/CheckOut" element={<CheckOutForm />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </CartContextProvider>
   );

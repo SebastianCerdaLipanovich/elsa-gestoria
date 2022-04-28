@@ -1,5 +1,3 @@
-//Este es el que muestra
-
 import React from "react";
 import Item from "./Item";
 

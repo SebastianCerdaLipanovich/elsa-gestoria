@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { CartContext } from '../components/CartContext'
 import { Link } from 'react-router-dom'
 import Table from '@mui/material/Table';
@@ -14,9 +14,7 @@ import CartTableRow from '../components/CartTableRow'
 export default function CartListContainer() {
 
     let { cart, clear, removeFromCart } = useContext(CartContext);
-    const [cartItems, setCartItems] = useState(cart.length);
-    const [shoppingCart, setShoppingCart] = useState(cart);
-
+   
     function subtotal(cart) {
         let sum = 0;
         cart.forEach(element => {
@@ -29,17 +27,12 @@ export default function CartListContainer() {
     }
 
 
-    useEffect(() => {
-        setCartItems(cart.length);
-        setShoppingCart(cart)
-    }, [cart])
-
 
     return (
         <>
             <div>
 
-                {cartItems === 0 ?
+                {cart.length === 0 ?
                     (
                         <div>
                             <h3>No hay items en tu carrito</h3>
@@ -53,7 +46,7 @@ export default function CartListContainer() {
                             <br />
                             <TableContainer component={Paper}>
                                 <Table sx={{ minWidth: 700 }} aria-label="spanning table">
-                                    <TableHead key="unica">
+                                    <TableHead>
                                         <TableRow>
                                             <TableCell>Descripcion</TableCell>
                                             <TableCell align="right">Cantidad</TableCell>
@@ -63,14 +56,20 @@ export default function CartListContainer() {
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {shoppingCart.map((item) => (
-                                            <CartTableRow key={item.index} item={item} removeFromCart={removeFromCart} />
+                                        {cart.map((item) => (
+                                            <CartTableRow key={item.item.id} item={item} removeFromCart={removeFromCart} />
                                         ))}
                                         <TableRow>
                                             <TableCell rowSpan={3} />
                                             <TableCell colSpan={2}>Total</TableCell>
                                             <TableCell align="right">{ccyFormat(subtotal(cart))} USD</TableCell>
                                             <TableCell align="right"><button onClick={() => clear()}>Borrar Todos</button></TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell rowSpan={3} />
+                                            <TableCell rowSpan={3} />
+                                            <TableCell rowSpan={3} />
+                                            <TableCell align="right"><Link to="/CheckOut"><button>Comprar</button></Link></TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>
