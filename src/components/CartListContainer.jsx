@@ -9,6 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CartTableRow from '../components/CartTableRow'
+import CheckOutForm from './CheckOutForm';
 
 
 export default function CartListContainer() {
@@ -61,19 +62,14 @@ export default function CartListContainer() {
                                         ))}
                                         <TableRow>
                                             <TableCell rowSpan={3} />
-                                            <TableCell colSpan={2}>Total</TableCell>
+                                            <TableCell colSpan={2} align="right">Total</TableCell>
                                             <TableCell align="right">{ccyFormat(subtotal(cart))} USD</TableCell>
                                             <TableCell align="right"><button onClick={() => clear()}>Borrar Todos</button></TableCell>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableCell rowSpan={3} />
-                                            <TableCell rowSpan={3} />
-                                            <TableCell rowSpan={3} />
-                                            <TableCell align="right"><Link to="/CheckOut"><button>Comprar</button></Link></TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>
                             </TableContainer>
+                            <CheckOutForm/>
                         </>
                     )
                 }

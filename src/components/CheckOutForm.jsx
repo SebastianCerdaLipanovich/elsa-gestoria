@@ -11,7 +11,13 @@ export default function CheckOutForm() {
 
     function terminarCompra() {
 
-        createOrder(name,email,phone);
+        if (name!=="" && email!=="" && phone!=="") {
+            createOrder(name, email, phone);
+        }
+        else {
+            alert("Faltan los datos del comprador")
+        }
+
         /*
         let buyer ={
             buyer: { name, phone, email},
@@ -23,37 +29,40 @@ export default function CheckOutForm() {
 
     return (
         <>
-            <div>
-                <h2>Formulario de compra</h2>
-                
-                    <input type={'text'}
-                        value={name}
-                        placeholder="nombre"
-                        onChange={(e) => {
-                            setName(e.currentTarget.value);
-                        }}
-                    />
-                
+            <div className='buyingForm'>
+                <h2>Datos del comprador</h2>
+
+                <input type={'text'}
+                    value={name}
+                    required={true}
+                    placeholder="nombre"
+                    onChange={(e) => {
+                        setName(e.currentTarget.value);
+                    }}
+                />
+
                 <br />
-                
-                    <input type={'text'}
-                        value={email}
-                        placeholder="email"
-                        onChange={(e) => {
-                            setEmail(e.currentTarget.value);
-                        }}
-                    />
-                
+
+                <input type={'text'}
+                    value={email}
+                    placeholder="email"
+                    required={true}
+                    onChange={(e) => {
+                        setEmail(e.currentTarget.value);
+                    }}
+                />
+
                 <br />
-                
-                    <input type={'text'}
-                        value={phone}
-                        placeholder="telefono"
-                        onChange={(e) => {
-                            setPhone(e.currentTarget.value);
-                        }}
-                    />
-                
+
+                <input type={'text'}
+                    value={phone}
+                    placeholder="telefono"
+                    required={true}
+                    onChange={(e) => {
+                        setPhone(e.currentTarget.value);
+                    }}
+                />
+
                 <br />
                 <button onClick={() => terminarCompra()}>Comprar</button>
             </div>

@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import {addDoc, collection, getFirestore} from 'firebase/firestore'
+import {addDoc, collection, getFirestore, serverTimestamp} from 'firebase/firestore'
 export const CartContext = createContext();
 
 export default function CartContextProvider({ children }) {
@@ -20,6 +20,7 @@ export default function CartContextProvider({ children }) {
                 price: item.item.price,
                 cantidad: item.cantidad
             })),
+            date: serverTimestamp(),
             total: total(),  
         };
         
